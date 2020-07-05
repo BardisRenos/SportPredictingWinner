@@ -102,6 +102,19 @@ We have to prepaire the data first, then to feed the classifier. From the data i
 
 ```
 
+Shuffle and split the dataset into training and testing set.
+```python
+X_train, X_test, y_train, y_test = train_test_split(X_data, y_data, test_size=0.3, random_state=2)
+
+print(X_train.shape, y_train.shape)
+print(X_test.shape, y_test.shape)
+```
+
+```text
+  (386, 55) (386,)
+  (166, 55) (166,)
+```
+
 ## Training and Evaluating the Model
 
 ```python

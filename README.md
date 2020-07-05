@@ -14,7 +14,7 @@ This repo demonstrates that a ML model can predict accurately
   
 ## Dataset
   
-  The graph shows all the 
+The graph shows the total number of games **TNM**, the number of home winnings **HW**, the number of Away winnings **AW** and finally the number of **Draws**.
   
 <p align="center"> 
 <img src="https://github.com/BardisRenos/SportPredictingWinner/blob/master/myplot.png" width="450" height="450" style=centerme>
@@ -23,6 +23,17 @@ This repo demonstrates that a ML model can predict accurately
 ## Using the necessary dependencies
 
 ```python
+# Import Dependencies
+
+# Import pandas library for data preprocessing
+import pandas as pd
+# Import the matplotlib 
+import matplotlib.pyplot as plt
+import numpy as np
+# Import the classifier
+import xgboost as xgb
+# Import the sklearn library to standardising the data.
+from sklearn.preprocessing import scale
 
 ```
  

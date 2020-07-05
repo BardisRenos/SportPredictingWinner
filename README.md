@@ -44,6 +44,10 @@ The dataset has 552 rows and 62 columns.
   print("Number of matches won by home team: {}".format(num_home_team_wins))
   print("Number of matches won by away team: {}".format(num_away_team_wins))
   print("Number of matches draw: {}".format(num_home_drew))
+  
+  win_home_rate = (float(num_home_team_wins) / num_matches) * 100
+  print("Win rate of home team: {:.2f}%".format(win_home_rate))
+  
 ```
 
 ```text
@@ -53,6 +57,8 @@ The dataset has 552 rows and 62 columns.
   Number of matches won by home team: 240
   Number of matches won by away team: 150
   Number of matches draw: 162
+  
+  Win rate of home team is: 43.48%
 
 ```
 
@@ -76,7 +82,47 @@ from sklearn.preprocessing import scale
  
 ## Preparing the Data
 
+We have to prepaire the data first, then to feed the classifier. From the data it is important to remove the categorical variables. Also, another important step is to scalling the data.
 
+```python
+# Remove the columns that data are not numerical
 
+  def preprocess_data(X):
+      for col, col_data in X.iteritems():
+          if col_data.dtype == object:
+              X = X.drop([col], axis=1)
+      return X
+
+# Transformation of each value
+
+  def scalling_data(X):
+      for col in X.columns:
+          X[col] = scale(X[col])
+      return X
+
+```
 
 ## Training and Evaluating the Model
+
+```python
+
+  # Setting the classifier
+  clf_C = xgb.XGBClassifier(seed=82)
+
+  def train_predict(clf, X_train, y_train, X_test, y_test):
+    # Train the classifier
+    clf.fit(X_train, y_train)
+    print("the predicted is: ", clf.predict(X_test[1:2]), "and the label is:", str(y_test[1:2]).split("    ")[1])
+    y_pred = clf.predict(X_test)
+    print("Accuracy : {:.2f}%".format(accuracy_score(y_test, y_pred) * 100))
+
+```
+
+
+```python
+  if __name__ == '__main__':
+    train_predict(clf_C, X_train, y_train, X_test, y_test)
+
+```
+
+

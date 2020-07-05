@@ -118,6 +118,12 @@ We have to prepaire the data first, then to feed the classifier. From the data i
 
 ```
 
+We can see a random prediction and the overall accuracy of the model.
+
+```text
+  the predicted is:  ['H'] and the label is: H
+  Accuracy : 98.19%
+```
 
 ```python
   if __name__ == '__main__':

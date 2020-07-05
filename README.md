@@ -14,6 +14,9 @@ This repo demonstrates that a ML model can predict accurately
   
   ## Dataset
   
+  <p align="center"> 
+<img src="https://github.com/BardisRenos/SportPredictingWinner/blob/master/myplot.png" width="450" height="450" style=centerme>
+</p>
   
   ## Usimg the necessary dependencies
   
